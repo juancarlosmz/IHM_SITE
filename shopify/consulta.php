@@ -41,11 +41,9 @@ foreach ($result['products'] as $prod) {
     <div>
         <form id="artyom-speech-form">
             <div>
-                <textarea type="text" id="artyom-speech-textarea">
-                    Hola como estas hoy
-                </textarea>
+               
                 <i>
-                    <input type="submit" id="artyom-speech-button" value="Sintetizar">
+                    <input type="submit" id="" value="Sintetizar">
                 </i>
             </div>
         </form>
@@ -53,13 +51,16 @@ foreach ($result['products'] as $prod) {
     <script>
         window.artyom = new Artyom();
         //code
+
         artyom.addCommands([
             {
                 description:"Artyom can talk, lets say something if we say hello",
-                indexes:["hi","amigo"],
+                indexes:["hola","amigo"],
                 action:function(i){
                     if(i == 0){
-                        artyom.say("No te amo");
+                        artyom.say("Como estas");
+                    }else if(i == 1){
+                        artyom.say("Amigo mio");
                     }
                 }
             },
@@ -77,12 +78,6 @@ foreach ($result['products'] as $prod) {
                     alert("Now all is over.");
                 }
             },
-
-
-
-
-
-
         ]);
 
         artyom.redirectRecognizedTextOutput(function(text,isFinal){
@@ -107,6 +102,10 @@ foreach ($result['products'] as $prod) {
             artyom.fatality();
         }
 
+
+   
+        artyom.say("Ella no te ama");
+        artyom.say("Ahora es felíz con otro");
 
        
 

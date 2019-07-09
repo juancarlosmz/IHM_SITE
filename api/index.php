@@ -3,7 +3,7 @@
 // Cargamos Vendor
 require __DIR__ . '/vendor/autoload.php';
 
-$pdo = new PDO('mysql:host=localhost;dbname=angular;charset=utf8', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=IHM_DB;charset=utf8', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
@@ -45,22 +45,22 @@ function profesiones($fluent)
 function listar($fluent)
 {
     return $fluent
-         ->from('empleado')
-         ->select('empleado.*, profesion.Nombre as Profesion')
+         ->from('user')
+         ->select('user.*, user.Nombre as User')
          ->orderBy("id DESC")
          ->fetchAll();
 }
 
 function obtener($fluent, $id)
 {
-    return $fluent->from('empleado', $id)
-                  ->select('empleado.*, profesion.Nombre as Profesion')
+    return $fluent->from('user', $id)
+                  ->select('user.*, user.Nombre as User')
                   ->fetch();
 }
 
 function eliminar($fluent, $id)
 {
-    $fluent->deleteFrom('empleado', $id)
+    $fluent->deleteFrom('user', $id)
              ->execute();
     
     return true;
@@ -69,7 +69,7 @@ function eliminar($fluent, $id)
 function registrar($fluent, $data)
 {
     $data['FechaRegistro'] = date('Y-m-d');
-    $fluent->insertInto('empleado', $data)
+    $fluent->insertInto('user', $data)
            ->execute();
     
     return true;
