@@ -38,6 +38,18 @@ foreach ($result['products'] as $prod) {
         <input type="button" onclick="stopArtyom()" value="Stop"/><br>
         <span id="output"></span>
     </div>
+    <div>
+        <form id="artyom-speech-form">
+            <div>
+                <textarea type="text" id="artyom-speech-textarea">
+                    Hola como estas hoy
+                </textarea>
+                <i>
+                    <input type="submit" id="artyom-speech-button" value="Sintetizar">
+                </i>
+            </div>
+        </form>
+    </div>
     <script>
         window.artyom = new Artyom();
         //code
@@ -64,7 +76,13 @@ foreach ($result['products'] as $prod) {
                 action:function(){
                     alert("Now all is over.");
                 }
-            }
+            },
+
+
+
+
+
+
         ]);
 
         artyom.redirectRecognizedTextOutput(function(text,isFinal){
@@ -88,6 +106,10 @@ foreach ($result['products'] as $prod) {
         function stopArtyom(){
             artyom.fatality();
         }
+
+
+       
+
     </script>
 </body>
 </html>
