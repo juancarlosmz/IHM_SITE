@@ -1,5 +1,5 @@
 <h2 class="page-header">
-    {{model. model.Nombre }}
+    {{model.Nombre }}
 </h2>
 
 <a href="#/" class="btn btn-default btn-block">Volver</a>
@@ -10,14 +10,10 @@
     <dt>Apellido</dt>
     <dd>{{model. Apellido }}</dd>
     <dt>Sexo</dt>
-    <dd ng-if="model.Sexo == 1">Hombre</dd>
-    <dd ng-if="model.Sexo == 2">Mujer</dd>
-    <dt>Sueldo</dt>
-    <dd>{{model. Sueldo }}</dd>
-    <dt>Profesion</dt>
-    <dd>{{model. Profesion }}</dd>
+    <dd ng-if="model.sexo == 1">Hombre</dd>
+    <dd ng-if="model.sexo == 2">Mujer</dd>
+
     <dt>Fecha Nacimiento</dt>
-    <dd>{{model. FechaNacimiento }}</dd>
-    <dt>Fecha Registro</dt>
-    <dd>{{model. FechaRegistro }}</dd>
+    <dd>{{model. fnacimiento }}</dd>
+
 </dl>

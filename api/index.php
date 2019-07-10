@@ -12,10 +12,7 @@ $fluent = new FluentPDO($pdo);
 $action = isset($_GET['a']) ? $_GET['a'] : null;
 
 switch($action) {
-    case 'profesiones':
-        header('Content-Type: application/json');
-        print_r(json_encode(profesiones($fluent)));
-        break;
+
     case 'listar':
         header('Content-Type: application/json');
         print_r(json_encode(listar($fluent)));
@@ -35,18 +32,12 @@ switch($action) {
         break;
 }
 
-function profesiones($fluent)
-{
-    return $fluent
-         ->from('profesion')
-         ->fetchAll();
-}
 
 function listar($fluent)
 {
     return $fluent
          ->from('user')
-         ->select('user.*, user.Nombre as User')
+         ->select('user.nombre, user.apellido, user.email, user.sexo, user.fnacimiento')
          ->orderBy("id DESC")
          ->fetchAll();
 }
@@ -68,7 +59,7 @@ function eliminar($fluent, $id)
 
 function registrar($fluent, $data)
 {
-    $data['FechaRegistro'] = date('Y-m-d');
+    /*$data['FechaRegistro'] = date('Y-m-d');*/
     $fluent->insertInto('user', $data)
            ->execute();
     
