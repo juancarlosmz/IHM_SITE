@@ -6,22 +6,39 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 </head>
-<body>
+<div>
+    <div class="header">
+        <div >
+          <a href="#/">
+            <img src="" width="80" height="80"> Home
+          </a>
+          <a href="#/login">
+            <img src="" width="80" height="80"> Login
+          </a>
+          <a href="#/Products">
+            <img src="" width="80" height="80"> Products
+          </a>
+        </div>
+    </div>
+
 
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <h1 class="jumbotron">Mantenimiento de empleados</h1>
                 <!-- Content body -->
-                <ng-view />
+                <div ng-view></div>
             </div>
         </div>
     </div>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
     <script src="app.js"></script>
     <script src="controllers.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="services/products.js"></script>
 </body>
 
 </html>

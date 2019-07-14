@@ -2,7 +2,7 @@ var empleadoControllers = angular.module('empleadoControllers', []);
 
 empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope','$http', function($scope,$http){
     empleados();
-
+    
     function empleados(){
         $http.get('http://localhost:50/IHM_SITE/api/?a=listar').then(function(r){
             $scope.model = r.data;
@@ -44,12 +44,21 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$h
             $scope.model = r.data;
         });  
 }]);
-/*
-empleadoControllers.controller('EmpleadoLogin', ['$scope', '$http', function ($scope, $http) {
+
+empleadoControllers.controller('EmpleadoLogin', ['$scope', function ($scope) {
     
-    $http.get('http://localhost:50/IHM_SITE/api/?a=obtener&id=').then(function(r){
-        $scope.model = r.data;
-    }); 
+    $scope.url = "http://localhost:50/IHM_SITE/partials/login.html";
+    console.log("test");
+
      
 }]);
+empleadoControllers.controller('AllProducts', ['$scope','products', function ($scope,products) {
+    /*
+    $scope.url = "http://localhost:50/IHM_SITE/partials/Products.html";
+    console.log("test");
 */
+    products.success(function(data) {
+        $scope.products = data;
+    });
+     
+}]);

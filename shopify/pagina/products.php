@@ -15,6 +15,12 @@ foreach ($result['products'] as $prod) {
     $psocionimg = $prod['image']["position"];
     $precio = array($prod['variants']);
     //print_r($precio);
+
+    $productsphp = array(
+        "id"=>$codigo, 
+        "title"=>$titulos, 
+        "body_html"=>$descripcion);
+    print_r(json_encode($productsphp).",");
 }
 ?>
 
