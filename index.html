@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" ng-app="appDemo">
+<html lang="es" ng-app="appDemo" >
 <head>
     <meta charset="utf-8">
     <title>Mantenimiento de empleados</title>
@@ -9,32 +9,33 @@
 <div>
     <div class="header">
         <div >
-          <a href="#/">
+          <a ng-href="#/">
             <img src="" width="80" height="80"> Home
           </a>
-          <a href="#/login">
+          <a ng-href="#/login">
             <img src="" width="80" height="80"> Login
           </a>
-          <a href="#/Products">
+          <a ng-href="#/Products">
             <img src="" width="80" height="80"> Products
           </a>
         </div>
     </div>
 
-
+    <div class="ng-class">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <h1 class="jumbotron">Mantenimiento de empleados</h1>
                 <!-- Content body -->
-                <div ng-view></div>
+                <div class="ng-view"></div>
             </div>
         </div>
     </div>
+    </div>
     
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.9/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.9/angular-route.min.js"></script>
     <script src="app.js"></script>
     <script src="controllers.js"></script>
     <script src="js/jquery-3.4.1.js"></script>

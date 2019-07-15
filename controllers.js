@@ -4,15 +4,15 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope','$http', functio
     empleados();
     
     function empleados(){
-        $http.get('http://localhost:50/IHM_SITE/api/?a=listar').then(function(r){
-            $scope.model = r.data;
+        $http.get('http://localhost:50/IHM_SITE/api/?a=listar').then(function(response){
+            $scope.model = response.data;
         });
     }
 
     $scope.retirar = function(id){
         if(confirm('Esta seguro de realizar esta accion?')){
 
-            $http.get('http://localhost:50/IHM_SITE/api/?a=eliminar&id='+ id).then(function(r){
+            $http.get('http://localhost:50/IHM_SITE/api/?a=eliminar&id='+ id).then(function(response){
                 empleados();
             });
         }
@@ -26,7 +26,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope','$http', functio
             sexo: $scope.sexo,
             fnacimiento: $scope.fnacimiento
         };
-        $http.post('http://localhost:50/IHM_SITE/api/?a=registrar',model).then(function(r){
+        $http.post('http://localhost:50/IHM_SITE/api/?a=registrar',model).then(function(response){
             empleados();
             $scope.Nombre = null,
             $scope.Apellido = null,
@@ -40,8 +40,8 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope','$http', functio
 }]);
 
 empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {   
-        $http.get('http://localhost:50/IHM_SITE/api/?a=obtener&id=' + $routeParams.id).then(function(r){
-            $scope.model = r.data;
+        $http.get('http://localhost:50/IHM_SITE/api/?a=obtener&id=' + $routeParams.id).then(function(response){
+            $scope.model = response.data;
         });  
 }]);
 
@@ -52,13 +52,14 @@ empleadoControllers.controller('EmpleadoLogin', ['$scope', function ($scope) {
 
      
 }]);
-empleadoControllers.controller('AllProducts', ['$scope','products', function ($scope,products) {
-    /*
-    $scope.url = "http://localhost:50/IHM_SITE/partials/Products.html";
-    console.log("test");
-*/
-    products.success(function(data) {
-        $scope.products = data;
-    });
-     
-}]);
+
+empleadoControllers.controller('AllProducts', ['$scope','$http','products', function($scope,$http,products) {
+    //return $http.get('http://localhost:50/IHM_SITE/php/Products.php')
+
+    return $http.get('https://s3.amazonaws.com/codecademy-content/courses/ltp4/photos-api/photos.json')
+            .then(function(response) {
+               $scope.products = response.data;
+           });
+
+           
+  }]);
