@@ -56,10 +56,10 @@ empleadoControllers.controller('EmpleadoLogin', ['$scope', function ($scope) {
 empleadoControllers.controller('AllProducts', ['$scope','$http','products', function($scope,$http,products) {
     //return $http.get('http://localhost:50/IHM_SITE/php/Products.php')
 
-    return $http.get('https://s3.amazonaws.com/codecademy-content/courses/ltp4/photos-api/photos.json')
+        $http.get('https://s3.amazonaws.com/codecademy-content/courses/ltp4/photos-api/photos.json')
             .then(function(response) {
                $scope.products = response.data;
-           });
+        });
 
            
   }]);

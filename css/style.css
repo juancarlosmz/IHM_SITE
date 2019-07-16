@@ -1,0 +1,28 @@
+.tactilproducts{
+    background-color: green;
+    width: 100%;
+    height:100%;
+}
+.tactillogin{
+    background-color: yellow;
+    width: 100%;
+    height:100%;
+}
+.tactilregistro{
+    background-color: red;
+    width: 100%;
+    height:100%;
+}
+.tactilseguir{
+    background-color: blue;
+    width: 100%;
+    height:100%;
+}
+.row{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.row .cajas{
+    height:100px;
+    text-align: center;
+}
