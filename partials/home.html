@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <link rel="stylesheet" href="css/style.css">
@@ -14,11 +14,11 @@
 
   <div class="row">
     <div class="col-sm cajas">
-        <div class="tactilproducts">
+        <div class="tactilproducts" onmousedown="mouseDownP();" ondblclick="dblclickP();">
             <span>Productos</span>
         </div>
     </div>
-    <div class="col-sm cajas">
+    <div class="col-sm cajas" onmousedown="mouseDownL();" ondblclick="dblclickL();">
         <div class="tactillogin">
             <span>Login</span>
         </div>
@@ -26,12 +26,12 @@
   </div>
 
   <div class="row">
-    <div class="col-sm cajas">
+    <div class="col-sm cajas" onmousedown="mouseDownR();" ondblclick="dblclickR();">
         <div class="tactilregistro">
             <span>Registro</span>
         </div>
     </div>
-    <div class="col-sm cajas">
+    <div class="col-sm cajas" onmousedown="mouseDownS();" ondblclick="dblclickS();">
         <div class="tactilseguir">
             <span>Seguir</span>
         </div>
@@ -41,23 +41,9 @@
 </div>
 
 
-    <div>
-        <input type="button" onclick="startArtyom()" value="Start"/><br>
-        <input type="button" onclick="stopArtyom()" value="Stop"/><br>
-        <span id="output"></span>
-    </div>
-
 </body>
 <script src="js/jquery-3.4.1.js"></script>
-<script>
-    
-        console.log("testeando");
-        $( "div.tactilproducts" ).mousedown(function() {
-            alert("funca");
-        }).mouseup(function() {
-            alert("dejjo");
-        });
-    </script>
+
 
 </html>
 
