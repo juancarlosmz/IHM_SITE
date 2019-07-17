@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:50/IHM_SITE/shopify/consulta.php",
+            "url": "http://localhost:50/IHM_SITE/#/",
             "webRoot": "${workspaceFolder}"
         }
     ]

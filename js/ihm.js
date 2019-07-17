@@ -6,10 +6,8 @@ window.artyom = new Artyom();
   function mouseUpP() {
     productstop();
   }
-  function dblclickP(){
-     
+  function clickP(){
     window.location.href = "#/Products";
-    
   }
   //login
   function mouseDownL() {
@@ -18,7 +16,7 @@ window.artyom = new Artyom();
   function mouseUpP() {
     loginstop();
   }
-  function dblclickL(){
+  function clickL(){
     window.location.href = "#/login";
   }
   //registro
@@ -28,7 +26,7 @@ window.artyom = new Artyom();
   function mouseUpR() {
     registrostop();
   }
-  function dblclickR(){
+  function clickR(){
     window.location.href = "#/listado";
   }
   //usando la libreria 
@@ -40,7 +38,7 @@ window.artyom = new Artyom();
       debug:true,
       listen:true
     });
-    artyom.say("Esta es la página productos, para ingresar preciona 2 veces");
+    artyom.say("Esta es la página productos, presiona sobre un producto para saber su descripción");
     function stopArtyom(){
         artyom.fatality();
       }

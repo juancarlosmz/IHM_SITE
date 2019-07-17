@@ -30,6 +30,13 @@ switch($action) {
         header('Content-Type: application/json');
         print_r(json_encode(eliminar($fluent, $_GET['id'])));
         break;
+    case 'startlogin':
+        header('Content-Type: application/json');
+        $data = json_decode(utf8_encode(file_get_contents("php://input")), true);
+        $email    = $data->email; 
+        $contra = $data->contra;
+        print_r(json_encode(startlogin($fluent,$email,$contra)));
+        break;
 }
 
 
@@ -64,4 +71,21 @@ function registrar($fluent, $data)
            ->execute();
     
     return true;
+}
+
+function startlogin($fluent,$email,$contra)
+{
+    $fluent->from('user')
+           ->select('user.*') 
+           ->where('email LIKE ? and contra LIKE ?',$email,$contra)
+           ->fetch();
+    return true;
+    
+    /*
+    $fluent-> prepare ( "SELECT email,contra from user WHERE email=".$_GET['email']." && contra=".$_GET['contra'])
+           ->execute();
+    return true;
+*/
+      
+    
 }

@@ -40,18 +40,44 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope','$http', functio
 }]);
 
 empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$http', function ($scope, $routeParams, $http) {   
+        
         $http.get('http://localhost:50/IHM_SITE/api/?a=obtener&id=' + $routeParams.id).then(function(response){
             $scope.model = response.data;
         });  
 }]);
 
-empleadoControllers.controller('EmpleadoLogin', ['$scope', function ($scope) {
+empleadoControllers.controller('EmpleadoLogin', ['$scope','$http', function ($scope,$http) {
     
     $scope.url = "http://localhost:50/IHM_SITE/partials/login.html";
-    console.log("test");
+    $scope.startlogin = function(){
+        /*
+        memail = $scope.email;
+        mcontra = $scope.contra;
+        console.log("email "+memail+" contra "+ mcontra);
 
-     
+        $http.post('http://localhost:50/IHM_SITE/api/?a=startlogin&email='+memail+"&contra="+mcontra).then(function(response){
+            console.log("usuario ingresado");
+        });
+*/
+
+        var encodedString =
+        "email=" + encodeURIComponent($scope.email) +
+        "and contra=" + encodeURIComponent($scope.contra);
+        console.log(encodedString);
+        console.log({ email : $scope.email , contra : $scope.contra });
+        
+        $http.post('http://localhost:50/IHM_SITE/api/?a=startlogin',{ email : $scope.email , contra : $scope.contra }).then(function(response){
+            if(typeof(response.email) == "undefined"){
+                console.log("error fatal");
+            }else{
+                console.log("accesos correcto");
+            }
+        }); 
+
+    }
+
 }]);
+
 
 empleadoControllers.controller('AllProducts', ['$scope','$http','products', function($scope,$http,products) {
     //return $http.get('http://localhost:50/IHM_SITE/php/Products.php')
