@@ -33,7 +33,7 @@ switch($action) {
     case 'startlogin':
         header('Content-Type: application/json');
         $data = json_decode(utf8_encode(file_get_contents("php://input")), true);
-        $email    = $data->email; 
+        $email = $data->email; 
         $contra = $data->contra;
         print_r(json_encode(startlogin($fluent,$email,$contra)));
         break;
@@ -77,7 +77,7 @@ function startlogin($fluent,$email,$contra)
 {
     $fluent->from('user')
            ->select('user.*') 
-           ->where('email LIKE ? and contra LIKE ?',$email,$contra)
+           ->where('email LIKE ? and contra LIKE ?','%'.$email.'%','%'.$contra.'%')
            ->fetch();
     return true;
     
