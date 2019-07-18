@@ -64,14 +64,19 @@ empleadoControllers.controller('EmpleadoLogin', ['$scope','$http', function ($sc
         "email=" + encodeURIComponent($scope.email) +
         "and contra=" + encodeURIComponent($scope.contra);
         console.log(encodedString);
-        console.log({ email : $scope.email , contra : $scope.contra });
+        var user = { 
+            email : $scope.email , 
+            contra : $scope.contra 
+        };
+        console.log({ 
+            email : $scope.email , 
+            contra : $scope.contra 
+        });
         
-        $http.post('http://localhost:50/IHM_SITE/api/?a=startlogin',{ email : $scope.email , contra : $scope.contra }).then(function(response){
-            if(typeof(response.email) == "undefined"){
-                console.log("error fatal");
-            }else{
-                console.log("accesos correcto");
-            }
+        $http.post('http://localhost:50/IHM_SITE/api/?a=startlogin',user).then(function(response){
+            console.log("error fatal");
+            console.log("accesos correcto");
+
         }); 
 
     }
