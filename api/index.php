@@ -63,11 +63,16 @@ function startlogin($fluent,$email,$contra){
     return true;  
 }
 //TESTS
-$test = $fluent->from('user', 3)
+$test = $fluent->from('user', 2)
 ->select('user.*, user.Nombre as User')
 ->fetch();
-print_r(json_encode($query));
 print_r(json_encode($test));
+
+$query2 = $fluent->from('user')
+            ->select('email,contra')
+            ->where('email LIKE ? and contra LIKE ?','%'.'jj@gmail.com'.'%','%'.'jj'.'%')
+            ->fetch();   
+        print_r(json_encode($query2)); 
 
 ?>
 
@@ -83,20 +88,16 @@ print_r(json_encode($test));
 </html>
    <?php  
         } else { 
+            
         $example = file_get_contents("php://input");
-  /*      
-        $email = $request->email;
-        $contra = $request->contra;
+       
+        $email = $example->email;
+        $contra = $example->contra;
         echo $email;  
-*/
+
 
         echo $example; 
     
-        $query2 = $fluent->from('user')
-            ->select('email,contra')
-            //->where('email LIKE ? and contra LIKE ?','%'.'aaa@hotmail.com'.'%','%'.'aaa'.'%')
-            ->where('email LIKE ? and contra LIKE ?','%'.'aaa@hotmail.com'.'%','%'.'aaa'.'%')
-            ->fetch();   
-        print_r(json_encode($query2));     
+            
     }  
    ?>
