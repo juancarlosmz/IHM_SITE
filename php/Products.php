@@ -17,6 +17,7 @@ foreach ($result['products'] as $prod) {
     $productsphp = array(
         "id"=>$codigo, 
         "title"=>$titulos, 
+         "imagen"=>$imagen, 
         "body_html"=>$descripcion);
     print_r(json_encode($productsphp).",");
 }
